@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Doctor Details Form</title>
+  <style>
+    /* Basic styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    input[type="text"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    input[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .error-message {
+      color: red;
+      margin-top: 5px;
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 600px) {
+      .form-container {
+        width: 100%;
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+<h2 style="text-align: center;">Lung Cancer Prediction</h2>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+   
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url "home" %}">Home </a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url "finds" %}">Register as doctors </a>
+        </li>
+      </ul>
+      
+        <a href="{% url 'logout' %}" class="btn btn-outline-danger my-2 my-sm-0" >Logout</a>
+      
+    </div>
+  </nav>
+<body>
+  <div class="form-container">
+    <h2>Doctor Search Form</h2>
+    <form onsubmit="return validateForm()" method="Post">
+        {% csrf_token %}
+      <label for="doctor-type">Doctor Type:</label>
+      <select id="doctor-type" name="doctor-type" required>
+        <option value="">Select Type</option>
+        <option value="General Physician">General Physician</option>
+        <option value="Cardiologist">Cardiologist</option>
+        <option value="Dermatologist">Dermatologist</option>
+        <option value="Orthopedic Surgeon">Orthopedic Surgeon</option>
+        <option value="Ophthalmologist">Ophthalmologist</option>
+        <option value="Gynecologist">Gynecologist</option>
+        <option value="Pediatrician">Pediatrician</option>
+        <option value="Neurologist">Neurologist</option>
+        <!-- Add more options as needed -->
+      </select>
+      
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" required>
+      
+      <input type="submit" value="Search">
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var doctorType = document.getElementById('doctor-type');
+      var city = document.getElementById('city');
+      
+      // Reset error messages
+      var errorMessages = document.getElementsByClassName('error-message');
+      for (var i = 0; i < errorMessages.length; i++) {
+        errorMessages[i].style.display = 'none';
+      }
+      
+      // Check if all required fields are filled
+      if (!doctorType.value || !city.value) {
+        displayErrorMessage('Please fill out all fields.');
+        return false;
+      }
+      
+      // Form validation passed
+      return true;
+    }
+    
+    function displayErrorMessage(message) {
+      var errorContainer = document.createElement('p');
+      errorContainer.className = 'error-message';
+      errorContainer.innerHTML = message;
+      var form = document.querySelector('form');
+      form.appendChild(errorContainer);
+    }
+  </script>
+</body>
+</html>

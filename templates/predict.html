@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <style>
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+
+    .form-container label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-container input[type="number"],
+    .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    .form-container input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 480px) {
+      .form-container {
+        max-width: 100%;
+        padding: 10px;
+      }
+
+      .form-container input[type="number"],
+      .form-container textarea {
+        width: 100%;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+
+
+
+
+
+
+
+<h2 style="text-align: center;">Lung Cancer Prediction</h2>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url "home" %}">Home </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active"  href="{% url "predict" %}">Prediction</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url "finds" %}">Know Doctor near you</a>
+            </li>
+          </ul>
+          
+            <a href="{% url 'logout' %}" class="btn btn-outline-danger my-2 my-sm-0" >Logout</a>
+          
+        </div>
+      </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+
+
+
+  <p style="text-align: center; ">We required inputs from you to predict lung cancer based on symptoms...  </p>
+  <div class="form-container">
+    <form action="" method="POST">
+      {% csrf_token %}
+     
+
+      <label for="gender">Gender</label>
+      <input type="number" name="gender" min=0 max=1  placeholder="Enter 0:female  1:male"  required>
+
+
+      <label for="yellow_fingers">Yellow Fingers</label>
+      <input type="number" name="yellow_fingers"  min=1 max=2 placeholder="Enter 1:YES  2:NO"  required>
+
+      <label for="anxiety">Anxiety</label>
+      <input type="number" name="anxiety"  min=1 min=2 placeholder=" Enter 1:YES  2:NO"  required>
+
+      <label for="peer_pressure">Peer Pressure</label>
+      <input type="number" name="peer_pressure"  min=1 max=2 placeholder="Enter 1:YES  2:NO"  required>
+
+      
+
+
+      <label for="wheezing">Wheezing</label>
+      <input type="number" name="wheezing"  min=1 max=2 placeholder="Enter 1:YES  2:NO"  required>
+
+      <label for="alcohol_consuming">Alcohol Consuming</label>
+      <input type="number" name="alcohol_consuming"  min=1 max=2 placeholder="Enter 1:YES  2:NO"  required>
+
+      <label for="coughing">Coughing</label>
+      <input type="number" name="coughing"  min=1 max=2 placeholder="Enter 1:YES  2:NO"  required>
+
+     
+
+      <label for="swallowing_difficulty">Swallowing Difficulty</label>
+      <input type="number" name="swallowing_difficulty"  min=1 max=2 placeholder="Enter 1:YES  2:NO"  required>
+
+      <label for="chest_pain">Chest Pain</label>
+      <input type="number" name="chest_pain"  min=1 max=2 placeholder="Enter 1:YES  2:NO"  required>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>

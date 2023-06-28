@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lung Cancer Prediction</title>
+  
+  <style>
+    /* CSS styles for the web page */
+
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+header {
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Hero section styles */
+#hero {
+  text-align: center;
+  padding: 100px 0;
+}
+
+#hero h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+#hero p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+/* About section styles */
+#about {
+  padding: 60px;
+  background-color: #f5f5f5;
+}
+
+#about h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Signup modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 40px;
+  border-radius: 4px;
+  width: 60%;
+  max-width: 600px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Signup form styles */
+#signupForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#signupForm label {
+  margin-bottom: 10px;
+}
+
+#signupForm input[type="text"],
+#signupForm input[type="email"],
+#signupForm input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+#signupForm input[type="checkbox"] {
+  margin-bottom: 20px;
+}
+
+#signupForm button {
+  padding: 12px 24px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#signupForm button:hover {
+  background-color: #555;
+}
+
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer nav ul {
+  margin-top: 10px;
+}
+
+footer nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+footer nav ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#" onclick="openModal()">Sign Up</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <h1>Lung Cancer Prediction</h1>
+    <p>Get accurate predictions for lung cancer risk.</p>
+    <a href="#" onclick="openModal()" class="btn">Get Started</a>
+  </section>
+
+  <section id="about">
+    <h2>About Lung Cancer Prediction</h2>
+    <p>
+      The primary cause of lung cancer is smoking, including both active smoking and exposure to secondhand smoke. However, lung cancer can also occur in people who have never smoked, although the risk is significantly lower. Other risk factors for lung cancer include exposure to environmental pollutants (such as radon, asbestos, and certain chemicals), a family history of lung cancer, and certain genetic mutations.
+
+The symptoms of lung cancer may vary depending on the stage and type of cancer, but they can include persistent cough, chest pain, shortness of breath, wheezing, coughing up blood, fatigue, weight loss, and recurrent respiratory infections.
+
+Early detection and treatment are crucial for improving the prognosis of lung cancer. Diagnostic tests may include imaging studies (such as chest X-ray or CT scan), sputum cytology, and biopsy. Treatment options for lung cancer include surgery, radiation therapy, chemotherapy, targeted therapy, and immunotherapy. The choice of treatment depends on factors such as the stage and type of cancer, overall health of the patient, and individual preferences.
+    </p>
+  </section>
+
+  <div id="signup-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Sign Up</h2>
+      <form id="signupForm" method="Post">
+         {% csrf_token %}
+        <label for="user_name" >Name:</label>
+        <input type="text" id="name" name="user_name" required>
+         <label for="password">Password</label>
+        <input type="password"  name="password" />
+
+        <label for="phone_number">Phone Number</label>
+        <input id="phone_number" type="text" name="phone_number">
+      
+       
+      
+        <button type="submit" class="btn">Sign Up</button>
+        <p>Already have an account? <a href="http://127.0.0.1:8000/login">Login</a></p>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 Lung Cancer Prediction. All rights reserved.</p>
+    <nav>
+     
+    </nav>
+  </footer>
+
+  <script>
+    function openModal() {
+      document.getElementById("signup-modal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("signup-modal").style.display = "none";
+    }
+  </script>
+</body>
+</html>

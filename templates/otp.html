@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Register</title>
+</head>
+<body>
+    {% block includes %}
+    <form action="/otp/{{id}}/" method="post">
+        <h2>OTP VERIFICATION:</h2>
+        {% csrf_token %}
+        <label for="otp">OTP:         </label>
+        <input id="otp" type="text" name="otp">
+        <input type="submit" value="login">
+        </form>
+        {% endblock includes %}
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        <style>
+              /* styles.css */
+
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+/* Header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navigation {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.navigation li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Banner Section */
+.banner img {
+  width: 100%;
+  height: auto;
+}
+
+.banner h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.banner h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Sections */
+section {
+  padding: 40px;
+  background-color: #f8f8f8;
+}
+
+section h2 {
+  margin-bottom: 20px;
+}
+
+section ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+/* Contact Section */
+.contact form input,
+.contact form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+
+
+
+.contact form button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.social-media {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.social-media li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.social-media li a img {
+  width: 20px;
+  height: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </style>
+    </head>
+
+
+    <h1 style="text-align: center;">Lung Cancer Prediction</h1>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+       
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url "home" %}">Home </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active"  href="{% url "predict" %}">Prediction</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url "search" %}">Know Doctor near you</a>
+            </li>
+          </ul>
+          
+            <a href="{% url 'logout' %}" class="btn btn-outline-danger my-2 my-sm-0" >Logout</a>
+          
+        </div>
+      </nav>
+      <body>
+        
+
+
+        
+  <section class="banner">
+   
+    <h1>Empowering Lung Cancer Prediction and Awareness</h1>
+    <h2>Harnessing the Power of AI to Predict Lung Cancer Risk</h2>
+  </section>
+
+  <section class="about">
+    <h2>About</h2>
+    <p>Introduction to the lung cancer prediction platform.</p>
+    <p>Brief explanation of the importance of early detection and prediction.</p>
+    <p>Highlight the utilization of cutting-edge machine learning algorithms and medical data analysis.</p>
+    <p>Emphasize the platform's commitment to improving lung cancer outcomes.</p>
+  </section>
+
+  <section class="symptoms">
+    <h2>Symptoms</h2>
+    <ul>
+      <li>Coughing, especially if it persists or worsens</li>
+      <li>Chest pain</li>
+      <li>Shortness of breath</li>
+      <li>Hoarseness or voice changes</li>
+      <li>Coughing up blood</li>
+      <li>Unexplained weight loss</li>
+    </ul>
+    <p>If you experience any of these symptoms, seek medical advice.</p>
+  </section>
+
+  <section class="risk-factors">
+    <h2>Risk Factors</h2>
+    <ul>
+      <li>Smoking</li>
+      <li>Exposure to secondhand smoke</li>
+      <li>Radon gas</li>
+      <li>Occupational hazards</li>
+      <li>Family history</li>
+    </ul>
+    <p>Provide tips and strategies to reduce the risk of lung cancer.</p>
+    <p>Encourage a healthy lifestyle, exercise, and a balanced diet.</p>
+    <p>Highlight the importance of avoiding exposure to carcinogens.</p>
+  </section>
+
+  <section class="diagnosis">
+    <h2>Diagnosis</h2>
+    <p>Explain the various diagnostic methods used for lung cancer.</p>
+    <p>Mention imaging techniques (X-ray, CT scan), biopsies, and other tests.</p>
+    <p>Highlight the importance of early diagnosis and the role of screenings.</p>
+  </section>
+
+  <section class="prevention">
+    <h2>Prevention</h2>
+    <p>Provide tips and strategies to reduce the risk of lung cancer.</p>
+    <p>Promote smoking cessation programs and resources.</p>
+    <p>Encourage a healthy lifestyle, exercise, and a balanced diet.</p>
+    <p>Highlight the importance of avoiding exposure to carcinogens.</p>
+  </section>
+
+  <section class="treatment">
+    <h2>Treatment</h2>
+    <p>Briefly discuss the different treatment options for lung cancer.</p>
+    <p>Mention surgery, radiation therapy, chemotherapy, immunotherapy, and targeted therapy.</p>
+    <p>Highlight the importance of personalized treatment plans and multidisciplinary approaches.</p>
+  </section>
+
+ 
+
+  <footer>
+    <p>&copy; 2023 Lung Cancer Prediction. All rights reserved.</p>
+    <p>Disclaimer: The information provided on this website is not a substitute for medical advice.</p>
+    
+  </footer>
+</body>
+       
+  
+      </body>
+</html>

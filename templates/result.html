@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <style>
+
+
+body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #f2f2f2;}
+         
+   
+
+
+    </style>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </head>
+
+    
+<h2 style="text-align: center;">Lung Cancer Prediction</h2>
+    
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url "home" %}">Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active"  href="{% url "predict" %}">Prediction</a>
+          </li>
+      </ul>
+      
+      
+        <a href="{% url 'logout' %}" class="btn btn-outline-danger my-2 my-sm-0" >Logout</a>
+      
+    </div>
+  </nav>
+
+  <body>
+
+    <h1>Test Report</h1>
+  
+  <table>
+    <tr>
+      
+      
+      
+    
+      <th>Yellow Fingers</th>
+      <th>Anxiety</th>
+      <th>Peer Pressure</th>
+      <th>Wheezing</th>
+      <th>Alcohol Consuming</th>
+      <th>Coughing</th>
+      <th>Swallowing Difficulty</th>
+      <th>Chest Pain</th>
+      <th>Gender</th>
+    </tr>
+    <tr>
+    
+      
+  
+      <td>{{yellow_fingers}}</td>
+      <td>{{anxiety}}</td>
+      <td>{{peer_pressure}}</td>
+      
+    
+      <td>{{wheezing}}</td>
+      <td>{{alcohol_consuming}}</td>
+      <td>{{coughing}}</td>
+      
+      <td>{{swallowing_difficulty}}</td>
+      <td>{{chest_pain}}</td>
+      <td>{{gender}}</td>
+    </tr>
+  </table>
+  
+  <div id="final-findings">
+    <h2>Final Findings</h2>
+    <p>Based on the test results, the following observations can be made:</p>
+    <ul>
+      <li style=" font-weight: bold; text-decoration: underline;">{{result}}</li>
+      <li>1:YES</li>
+      <li>2:NO</li>
+    </ul>
+  </div>
+      
+
+  </body>
+
+</html>
